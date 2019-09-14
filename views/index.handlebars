@@ -1,0 +1,52 @@
+<img src="https://cdn.foodbeast.com/wp-content/uploads/2017/06/Webp.net-compress-image.jpg" width= "150" alt="Burger">
+       
+       <h1 style="color:red;"><b>EAT-DA-BURGER!</b></h1>
+      {{#each burger_data}}
+        
+     
+      {{#if this.devoured}}
+      {{!-- <form action="/" method='post'> --}}
+        <div id= 'resultButton' class="input-group mb-3"> 
+        <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2"> 
+        <div class="input-group-append">
+           <button class="btn btn-outline-secondary" type="button" id="button-addon2">Devour</button>  
+        </div>  
+      </div> 
+      {{!-- </form> --}}
+       
+      {{/if}}
+       {{/each}}
+        {{#each burger_data}}
+      {{#unless this.devoured}}
+       <button class="form-control">{{this.burger_name}}</button>
+       <button class="btn btn-outline-secondary">Devour</button>
+        <div id="eaten" class="input-group mb-3">
+        
+      </div>
+      {{/unless}}
+       {{/each }}
+        <br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Enter a burger you want to eat</span>
+            </div>
+            <textarea id=text class="form-control" aria-label=""></textarea>
+          </div><br>
+        <button type="button" id="submit-button" class="btn btn-primary">Submit</button>
+        
+        <br>
+        
+
+
+
+{{!--
+Example
+ <ul>
+  {{#each animals}}
+    <li>
+      <p>Type: {{animalType}}</p>
+      <p>Pet: {{pet}}</p>
+btn      <p>Fierceness: {{fierceness}}</p>
+    </li>
+  {{/each}}
+</ul> --}}
