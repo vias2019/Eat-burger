@@ -30,20 +30,25 @@ var orm = {
         cb(result);
       });
     },
-    update: function(table, value) {
+    update: function(table, id, cb) {
       var queryString = "UPDATE " + table;
-  
+      
       queryString += " SET ";
+    
       queryString += "devoured =";
+      
       queryString += true;
-  
+      queryString += " where id= "+id+";";
+      
       console.log(queryString);
+     
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
         }
   
         console.log(result);
+        cb(result);
       });
     }
   };

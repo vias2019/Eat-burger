@@ -6,6 +6,9 @@ var burger = {
     },
     all: function( cb){
         orm.selectAll('burgers', cb);
+    },
+    update: function( id, cb){
+        orm.update("burgers", id, cb);
     }
 
 };

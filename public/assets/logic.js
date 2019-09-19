@@ -1,47 +1,54 @@
-$(document).ready(function(){
-    $("#submit-button").on("click", function (){
+$(document).ready(function () {
+    $("#submit-button").on("click", function () {
         console.log("clicked");
-        var data ={
-           burger_name: $('#text').val().trim(),
-             
+        var data = {
+            burger_name: $('#text').val().trim(),
+
         };
-    
-    
-    $.post ("/api/burgers", data,  function(req,res){
-        console.log(res);
-        var newButton= $("<input/>").attr({
-            type:'text'
+
+
+        $.post("/api/burgers", data, function (req, res) {
+            console.log(res);
+            var newButton = $("<input/>").attr({
+                type: 'text'
+
+            });
+
+            var devourButton = $("<button>Devour</button>").attr({
+                type: 'button'
+
+            });
+            newButton.css("display", "inline");
+            devourButton.css("display", "inline");
+            newButton.addClass("input-group mb-3");
+            devourButton.addClass("btn btn-outline-secondary");
+            newButton.text(data.burger_name);
+            devourButton.text('Devour');
+            $("#resultButton").append(newButton);
+            $("#resultButton").append(devourButton);
+
 
         });
-   
-        var devourButton= $("<button>Devour</button>").attr({
-            type:'button'
 
-        }); 
-       newButton.css( "display", "inline" );
-       devourButton.css("display", "inline");
-    newButton.addClass("input-group mb-3");
-    devourButton.addClass("btn btn-outline-secondary");
-    newButton.text(data.burger_name);
-    devourButton.text('Devour');
-    $("#resultButton").append(newButton);
-    $("#resultButton").append(devourButton);
+        // $.get ("/", function (req, res) {
+        //     console.log("here"+req.body());
+        //   });
 
-    
-    });
-    
-    // $.get ("/", function (req, res) {
-    //     console.log("here"+req.body());
-    //   });
-    
-    
+
     });
 
+    $(document).on("click", '.devour-btn', function () {
+        var burgerId = $(this).data('id');
+        console.log(burgerId);
+        $.post("/api/burgers/" + burgerId, function (req, res) {
+            console.log(res);
+            location.reload();
 
 
+        });
 
 
-
+    });
 
 
 

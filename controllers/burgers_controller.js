@@ -21,6 +21,13 @@ router.post("/api/burgers", function (req, res) {
     
 });
 
+router.post("/api/burgers/:burgerId", function (req, res){
+    burger.update(req.params.burgerId, function(){
+        res.json({});
+    });
+    
+});
+
 
 module.exports = router;
 
