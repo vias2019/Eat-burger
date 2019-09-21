@@ -13,11 +13,11 @@ router.get("/", function (req, res) {
     
 });
 
-router.get("/createtable", function (req, res) {
-    burger.createTable();
-    res.send('Table created successfully!');
+// router.get("/createtable", function (req, res) {
+//     burger.createTable();
+//     res.send('Table created successfully!');
     
-});
+// });
 
 router.post("/api/burgers", function (req, res) {
     burger.create(req.body.burger_name, function(){

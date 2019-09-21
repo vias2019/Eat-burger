@@ -1,21 +1,21 @@
 var connection=require('./connection');
 var orm = {
-  createTable: function() {
-    var queryString = `CREATE TABLE burgers
-    (
-        Id INT  auto_increment PRIMARY KEY, 
-        burger_name varchar(50) NOT NULL,
-        devoured boolean not null default false
+  // createTable: function() {
+  //   var queryString = `CREATE TABLE burgers
+  //   (
+  //       Id INT  auto_increment PRIMARY KEY, 
+  //       burger_name varchar(50) NOT NULL,
+  //       devoured boolean not null default false
        
-    );`;
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
+  //   );`;
+  //   connection.query(queryString, function(err, result) {
+  //     if (err) {
+  //       throw err;
+  //     }
     
-      console.log('table created: ', result);
-    });
-  },
+  //     console.log('table created: ', result);
+  //   });
+  // },
     selectAll: function(table, cb) {
       var queryString = "SELECT * FROM " + table + ";";
       connection.query(queryString, function(err, result) {
